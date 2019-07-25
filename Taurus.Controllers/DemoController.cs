@@ -139,7 +139,7 @@ namespace Taurus.Controllers
                     {
                         demo.UI.SetToAll(View);
 
-                        View.LoadData(demo.RawData, "");
+                        View.LoadData(demo, "");
                     }
                     Pager pager = new Pager(View);
                     dt = demo.Select(pager.PageIndex, pager.PageSize);
@@ -213,7 +213,7 @@ namespace Taurus.Controllers
         }
         public void BtnDelete()
         {
- 
+
             using (Users u = new Users())
             {
                 u.Delete();//id  ?id=xxx
@@ -227,7 +227,7 @@ namespace Taurus.Controllers
 
         private void InitData()
         {
-            if (!DBTool.ExistsTable("UserType", "xml path={0}App_Data"))
+            if (!DBTool.Exists("UserType", "U", "xml path={0}App_Data"))
             {
                 using (UserType ut = new UserType())
                 {
